@@ -35,7 +35,9 @@ lazy val root = (project in file(".")).settings(commonSettings)
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.6.19",
-  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4"
+  "org.jsoup" % "jsoup" % "1.14.3",
+  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
+  "org.scalatest" %% "scalatest-funsuite" % "3.3.0-SNAP3" % Test
 )
 
 scalacOptions ++= Seq(
