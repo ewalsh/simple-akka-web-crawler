@@ -4,6 +4,7 @@ import com.edmundwalsh.model.PageRank
 import java.net.URLConnection
 
 import scala.collection.mutable.Queue
+import scala.util.{Try, Success, Failure}
 // import akka.actor.ActorSystem
 
 object SimpleWebCrawler extends App {
@@ -75,8 +76,14 @@ object SimpleWebCrawler extends App {
           .flatMap(_._2)
           .distinct
           .map(x => {
-            new UrlConnectionChecker(x).conn
+            // occasionally nonsense comes through
+            // so wrapping in try
+            Try {
+              new UrlConnectionChecker(x).conn
+            }
           })
+          .filter(_.isFailure == false)
+          .map(_.get)
           .filter(_ != None)
           .map(_.get)
           .distinct
