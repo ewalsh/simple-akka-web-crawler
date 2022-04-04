@@ -59,9 +59,16 @@ object SimpleWebCrawler extends App {
         val maybeResult: Queue[Option[(PageRank, Array[String])]] =
           currentLinkQueue.map(lnk => {
             // checking if they have been visited
+            // println(lnk.toString)
             checkIfVisited(lnk, pagesVisited) match {
-              case true => None
-              case false => Some(calcPageRank(lnk, currentDepth))
+              case true => {
+                // println("in none")
+                None
+              }
+              case false => {
+                // println("in Some")
+                Some(calcPageRank(lnk, currentDepth))
+              }
             }
           })
         // only look/evaluate results we have not looked at before
@@ -78,6 +85,7 @@ object SimpleWebCrawler extends App {
           .map(x => {
             // occasionally nonsense comes through
             // so wrapping in try
+            // println(x)
             Try {
               new UrlConnectionChecker(x).conn
             }
