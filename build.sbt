@@ -1,10 +1,10 @@
 lazy val commonSettings = Seq(
-  name := "simple-akka-web-crawler",
+  name := "simple-web-crawler",
   sbtVersion := "1.5.2",
   scalaVersion := "2.12.10",
   organization := "com.edmundwalsh",
   version := "0.1-SNAPSHOT",
-  assembly / assemblyJarName := "eds_api-0.1.jar",
+  assembly / assemblyJarName := "simple-webcrawler-0.1.jar",
   assembly / assemblyMergeStrategy := {
     case x if Assembly.isConfigFile(x) =>
       MergeStrategy.concat
@@ -34,7 +34,7 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file(".")).settings(commonSettings)
 
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor" % "2.6.19",
+  // "com.typesafe.akka" %% "akka-actor" % "2.6.19",
   "org.jsoup" % "jsoup" % "1.14.3",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.4",
   "org.scalatest" %% "scalatest-funsuite" % "3.3.0-SNAP3" % Test

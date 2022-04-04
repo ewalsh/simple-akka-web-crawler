@@ -17,7 +17,14 @@ class UrlConnectionChecker(inputUrlString: String) {
     */
   def urlConnectionChecker(inputUrlString: String): Option[URLConnection] = {
 
-    /** */
+    /** function to get http response code and swap protocols where necesary
+      * @param url
+      *   URL to check response code
+      * @param tryProtocolSwap
+      *   Boolean with default false that swaps http(s)
+      * @return
+      *   tuple of URLConenction and response code
+      */
     def getResponseCode(
         url: URL,
         tryProtocolSwap: Boolean = false
@@ -68,9 +75,10 @@ class UrlConnectionChecker(inputUrlString: String) {
       }
     }
 
+    // run initial response code function
     val responseCode = getResponseCode(inputUrl)
 
-    //
+    // generate tuple output based on response code
     val outputConn: Option[URLConnection] =
       responseCode._2.contains("200") match {
         case true => Some(responseCode._1)
@@ -90,5 +98,6 @@ class UrlConnectionChecker(inputUrlString: String) {
     outputConn
   }
 
+  // add conn to class
   val conn: Option[URLConnection] = urlConnectionChecker(inputUrlString)
 }
