@@ -17,6 +17,8 @@ or for starting with a multiple url list
 
 `sbt "run https://google.com,https://microsoft.com,https://www.scala-sbt.org/ 3"`
 
+finally, results can be saved in a file using:
+`sbt "run https://google.com 3" > output.tsv`
 
 # NOTES FOR FUTURE DEVELOPMENT
 After starting this project I quickly realized that I am blocking with
