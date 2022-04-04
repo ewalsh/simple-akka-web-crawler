@@ -6,7 +6,7 @@ import java.net.URLConnection
 import scala.collection.mutable.Queue
 // import akka.actor.ActorSystem
 
-object SimpleAkkaWebCrawler extends App {
+object SimpleWebCrawler extends App {
 
   // preallocate
   val ansQueue = Queue[PageRank]()
