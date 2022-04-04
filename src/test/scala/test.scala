@@ -7,14 +7,12 @@ import java.net.URLConnection
 import java.net.URL
 import scala.collection.mutable.Queue
 
-/**
-this set of tests is not exhaustive, for example, I did not include
-the main calcPageRank as this would be variable over time
-Realizing this, I would likely break out the ratio calc, etc to test
-those separately.
-
-A few illustrative tests
-*/
+/** this set of tests is not exhaustive, for example, I did not include the main
+  * calcPageRank as this would be variable over time Realizing this, I would
+  * likely break out the ratio calc, etc to test those separately.
+  *
+  * A few illustrative tests
+  */
 
 class TestSuite extends AnyFunSuite {
 
